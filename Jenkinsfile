@@ -11,9 +11,10 @@ pipeline {
           }
         }
 
-    stage('Checkout SCM') {
-      steps {
-            git branch: 'main', url: 'https://github.com/Lordchancellorr/php-todo.git'
+     stage('Checkout SCM'){
+        steps {
+            checkout([$class: 'GitSCM', branches: [[name: 'main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '	b451d057-0f4c-4972-a5e1-45f51fbfb340', url: 'https://github.com/Lordchancellorr/php-todo.git']]])
+
       }
     }
 
