@@ -58,11 +58,6 @@ pipeline {
       }
     }
 
-    when { branch pattern: "^develop*|^hotfix*|^release*|^main*", comparator: "REGEXP"}
-      timeout(time: 1, unit: 'MINUTES') {
-        waitForQualityGate abortPipeline: true
-    }
-
    stage('SonarQube Quality Gate') {
       when { branch pattern: "^develop*|^hotfix*|^release*|^main*", comparator: "REGEXP"}
         environment {
